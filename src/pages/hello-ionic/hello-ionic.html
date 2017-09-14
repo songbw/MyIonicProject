@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>主页</ion-title>
+  </ion-navbar>
+  <ion-toolbar no-border-top>
+    <ion-searchbar color="primary"
+                   [(ngModel)]="queryText"
+                   (ionInput)="updateSchedule()"
+                   placeholder="Search">
+    </ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <h3>Welcome to your first Ionic app!</h3>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6>
+        <button ion-button  full large>AS 澳标</button></ion-col>
+      <ion-col col-6><button ion-button color="danger" full large>ASME 美标</button></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <button ion-button   full large>ANSI 美标</button></ion-col>
+      <ion-col col-6><button ion-button color="danger" full large>ASTM 美标</button></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <button ion-button   full large>BS 英标</button></ion-col>
+      <ion-col col-6><button ion-button color="danger" full large>CNS 台湾</button></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <button ion-button   full large>DIN 德标</button></ion-col>
+      <ion-col col-6><button ion-button color="danger" full large>GB 国标</button></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <button ion-button   full large>EN 欧标</button></ion-col>
+      <ion-col col-6><button ion-button color="danger" full large>GOST 俄标</button></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <button ion-button   full large>HG 化工</button></ion-col>
+      <ion-col col-6><button ion-button color="danger" full large>IFI 美标</button></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <button ion-button   full large>HB 航标</button></ion-col>
+      <ion-col col-6><button ion-button color="danger" full large>QJ 航标</button></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <button ion-button   full large>ISO 国标</button></ion-col>
+      <ion-col col-6><button ion-button color="danger" full large>JB 机械行业标准</button></ion-col>
+    </ion-row>
+    <ion-row>
+    <ion-col col-6>
+      <button ion-button   full large>JIS 日标</button></ion-col>
+      <ion-col col-6><button ion-button color="danger" full large>JG 建筑</button></ion-col>
+    </ion-row>
+    <ion-row>
+    <ion-col col-6>
+      <button ion-button   full large>NF 法国</button></ion-col>
+    <ion-col col-6><button ion-button color="danger" full large>KS 韩标</button></ion-col>
+    </ion-row>
+    <ion-row>
+    <ion-col col-6>
+      <button ion-button   full large>Self-Clinching 压铆件</button></ion-col>
+    <ion-col col-6><button ion-button color="danger" full large>QC 汽标</button></ion-col>
+    </ion-row>
+    <ion-row>
+    <ion-col col-6>
+      <button ion-button   full large>UNI 意大利</button></ion-col>
+    <ion-col col-6><button ion-button color="danger" full large>TB 铁道部</button></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
