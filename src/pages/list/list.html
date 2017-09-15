@@ -5,9 +5,20 @@
     </button>
     <ion-title>My First List</ion-title>
   </ion-navbar>
+  <ion-toolbar no-border-top>
+    <ion-searchbar color="primary"
+                   [(ngModel)]="queryText"
+                   (ionInput)="updateSchedule()"
+                   placeholder="Search">
+    </ion-searchbar>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <h3 text-center *ngIf="selectedItem">
+    {{selectedItem.title}}
+    <ion-icon [name]="selectedItem.icon"></ion-icon>
+  </h3>
   <ion-list>
     <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
       <ion-icon name="{{item.icon}}" item-left></ion-icon>

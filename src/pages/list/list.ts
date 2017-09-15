@@ -11,8 +11,11 @@ import { ItemDetailsPage } from '../item-details/item-details';
 export class ListPage {
   icons: string[];
   items: Array<{title: string, note: string, icon: string}>;
+  selectedItem:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+    this.selectedItem = navParams.get('item');
     this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
     'american-football', 'boat', 'bluetooth', 'build'];
 
