@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {NavController, NavParams} from "ionic-angular";
 import {ListPage} from "../list/list";
+import {HelloService} from "./helloService";
 
 @Component({
   selector: 'page-hello-ionic',
@@ -11,8 +12,9 @@ export class HelloIonicPage {
   icons: string[];
   itemRows: Array<any>;
   itemCols: Array<{title: string, note: string, icon: string}>;
+  userInfo;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public helloService: HelloService) {
     this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
       'american-football', 'boat', 'bluetooth', 'build'];
 
@@ -30,6 +32,12 @@ export class HelloIonicPage {
       this.itemRows.push(this.itemCols);
     }
     console.info(this.itemRows);
+  }
+
+  getUser() {
+    this.helloService.getUser().then(res=>{
+      this.userInfo=res.data;
+    })
   }
 
   listTapped(event, item) {
