@@ -1,1 +1,1 @@
-export const APP_SERVE_URL = 'http://localhost:22107';
+export const APP_SERVE_URL = 'http://zhaodaxiang.songbingwei.cn';

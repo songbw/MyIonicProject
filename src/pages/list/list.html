@@ -22,8 +22,8 @@
   <ion-list>
     <button ion-item *ngFor="let stan of standards" (click)="itemTapped($event, stan)">
       <!--<img-lazy-load [src]="stan.smallImgPath"></img-lazy-load>-->
-      <img  src="{{stan.smallImgPath}}">
-      {{stan.nameKey}}
+      <img  src="http://biaozhunjian.b0.upaiyun.com/{{stan.smallImgPath}}" item-left>
+      <div item-right>{{stan.nameKey}}</div>
       <div item-right>
         {{stan.engName}}
       </div>
