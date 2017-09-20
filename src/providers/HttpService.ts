@@ -9,10 +9,13 @@ export class HttpService {
   }
 
   public get(url: string, paramObj: any) {
-    return this.http.get(url + this.toQueryString(paramObj))
-      .toPromise()
-      .then(res => this.handleSuccess(res.json()))
-      .catch(error => this.handleError(error));
+    // return this.http.get(url + this.toQueryString(paramObj))
+    //   .toPromise()
+    //   .then(res => this.handleSuccess(res.json()))
+    //   .catch(error => this.handleError(error));
+    return this.http.request(url + this.toQueryString(paramObj)).subscribe((res : Response) => {
+      return res.json();
+    });
   }
 
   public post(url: string, paramObj: any) {

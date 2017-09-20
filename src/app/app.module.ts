@@ -10,6 +10,8 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {HttpService} from '../providers/HttpService';
+import {ListService} from '../pages/list/listService'
+import {HttpModule} from "@angular/http";
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import {HttpService} from '../providers/HttpService';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    HttpModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -32,7 +35,7 @@ import {HttpService} from '../providers/HttpService';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}, HttpService
+    {provide: ErrorHandler, useClass: IonicErrorHandler}, HttpService,ListService
   ]
 })
 export class AppModule {}
