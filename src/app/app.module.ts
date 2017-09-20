@@ -12,6 +12,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {HttpService} from '../providers/HttpService';
 import {ListService} from '../pages/list/listService'
 import {HttpModule} from "@angular/http";
+import {ComponentsModule} from "../components/components.module"
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import {HttpModule} from "@angular/http";
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpModule,
+    ComponentsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

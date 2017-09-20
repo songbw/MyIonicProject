@@ -9,13 +9,13 @@ export class HttpService {
   }
 
   public get(url: string, paramObj: any) {
-    // return this.http.get(url + this.toQueryString(paramObj))
-    //   .toPromise()
-    //   .then(res => this.handleSuccess(res.json()))
-    //   .catch(error => this.handleError(error));
-    return this.http.request(url + this.toQueryString(paramObj)).subscribe((res : Response) => {
-      return res.json();
-    });
+    return this.http.get(url + this.toQueryString(paramObj))
+      .toPromise()
+      .then(res => this.handleSuccess(res.json()))
+      .catch(error => this.handleError(error));
+    // return this.http.request(url + this.toQueryString(paramObj)).subscribe((res : Response) => {
+    //   return res.json();
+    // });
   }
 
   public post(url: string, paramObj: any) {
@@ -35,8 +35,8 @@ export class HttpService {
   }
 
   private handleSuccess(result) {
-    if (result && !result.success) {//由于和后台约定好,所有请求均返回一个包含success,msg,data三个属性的对象,所以这里可以这样处理
-      alert(result.msg);//这里使用ToastController
+    if (result && result.code != 200) {//由于和后台约定好,所有请求均返回一个包含success,msg,data三个属性的对象,所以这里可以这样处理
+      alert(result.message);//这里使用ToastController
     }
     return result;
   }

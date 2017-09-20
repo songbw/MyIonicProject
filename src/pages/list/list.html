@@ -20,12 +20,22 @@
     <ion-icon [name]="selectedItem.icon"></ion-icon>
   </h3>
   <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon name="{{item.icon}}" item-left></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-right>
-        {{item.note}}
+    <button ion-item *ngFor="let stan of standards" (click)="itemTapped($event, stan)">
+      <!--<img-lazy-load [src]="stan.smallImgPath"></img-lazy-load>-->
+      <img  src="{{stan.smallImgPath}}">
+      {{stan.nameKey}}
+      <div item-right>
+        {{stan.engName}}
       </div>
     </button>
   </ion-list>
+  <!--<ion-list>-->
+    <!--<button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">-->
+      <!--<ion-icon name="{{item.icon}}" item-left></ion-icon>-->
+      <!--{{item.title}}-->
+      <!--<div class="item-note" item-right>-->
+        <!--{{item.note}}-->
+      <!--</div>-->
+    <!--</button>-->
+  <!--</ion-list>-->
 </ion-content>
