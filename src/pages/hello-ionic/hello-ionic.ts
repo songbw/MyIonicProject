@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {NavController, NavParams} from "ionic-angular";
 import {ListPage} from "../list/list";
+import {SearchPage} from "../search/search";
+
 // import {HelloService} from "./helloService";
 
 @Component({
@@ -44,6 +46,10 @@ export class HelloIonicPage {
     this.navCtrl.push(ListPage, {
       item: item
     });
+  }
+
+  searchTapped(event) {
+    this.navCtrl.push(SearchPage);
   }
 
 }

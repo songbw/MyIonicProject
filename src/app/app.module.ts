@@ -12,14 +12,16 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {HttpService} from '../providers/HttpService';
 import {ListService} from '../pages/list/listService'
 import {HttpModule} from "@angular/http";
-import {ComponentsModule} from "../components/components.module"
+import {ComponentsModule} from "../components/components.module";
+import {SearchPage} from "../pages/search/search";
 
 @NgModule({
   declarations: [
     MyApp,
     HelloIonicPage,
     ItemDetailsPage,
-    ListPage
+    ListPage,
+    SearchPage
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,8 @@ import {ComponentsModule} from "../components/components.module"
     MyApp,
     HelloIonicPage,
     ItemDetailsPage,
-    ListPage
+    ListPage,
+    SearchPage
   ],
   providers: [
     StatusBar,

@@ -28,7 +28,6 @@ export class ListPage {
           this.standards=res.result.list;
           console.info("standars is : ",this.standards);
          });
-
     // for(let i = 1; i < 11; i++) {
     //   this.items.push({
     //     title: 'Item ' + i,
