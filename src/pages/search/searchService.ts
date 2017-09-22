@@ -3,12 +3,12 @@ import {HttpService} from "../../providers/HttpService";
 import {APP_SERVE_URL} from "../../providers/Constants";
 
 @Injectable()
-export class HelloService {
+export class SearchService {
   constructor(private httpService: HttpService) {
 
   }
 
-  getFenlei() {
-    return this.httpService.get(APP_SERVE_URL+'/api/fenlei',null);
+  searchStandard(name:string) {
+    return this.httpService.get(APP_SERVE_URL+'/api/standard/search',{"key":name});
   }
 }

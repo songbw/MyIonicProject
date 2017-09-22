@@ -3,27 +3,24 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>My First List</ion-title>
+    <ion-title>{{selectedItem.name}}</ion-title>
   </ion-navbar>
   <ion-toolbar no-border-top>
     <ion-searchbar color="primary"
                    [(ngModel)]="queryText"
-                   (ionInput)="updateSchedule()"
+                   (ionInput)="updateSchedule($event)"
                    placeholder="Search">
     </ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <h3 text-center *ngIf="selectedItem">
-    {{selectedItem.title}}
-    <ion-icon [name]="selectedItem.icon"></ion-icon>
-  </h3>
   <ion-list>
     <ion-item *ngFor="let stan of standards" (click)="itemTapped($event, stan)">
       <!--<img-lazy-load [src]="stan.smallImgPath" item-left large></img-lazy-load>-->
       <img src="{{stan.smallImgPath}}" item-start>
       <!--<ion-img src="{{stan.smallImgPath}}" item-start></ion-img>-->
+      <p>{{stan.type}}</p>
       <h3>{{stan.nameKey}}</h3>
       <p>{{stan.engName}}</p>
     </ion-item>

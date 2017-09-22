@@ -11,9 +11,11 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {HttpService} from '../providers/HttpService';
 import {ListService} from '../pages/list/listService'
+import {HelloService} from "../pages/hello-ionic/helloService";
 import {HttpModule} from "@angular/http";
 import {ComponentsModule} from "../components/components.module";
 import {SearchPage} from "../pages/search/search";
+import {SearchService} from "../pages/search/searchService";
 
 @NgModule({
   declarations: [
@@ -40,7 +42,7 @@ import {SearchPage} from "../pages/search/search";
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}, HttpService,ListService
+    {provide: ErrorHandler, useClass: IonicErrorHandler}, HttpService,ListService,HelloService,SearchService
   ]
 })
 export class AppModule {}

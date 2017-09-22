@@ -9,6 +9,10 @@ export class ListService {
   }
 
   standardBycode() {
-    return this.httpService.get(APP_SERVE_URL+'/api/standard/search',{"key":"螺丝"});
+    return this.httpService.get(APP_SERVE_URL+'/api/standard/search',{"key":""});
+  }
+
+  standardBytype(type:string) {
+    return this.httpService.get(APP_SERVE_URL+'/api/standard',{"type":"["+type+"]"});
   }
 }

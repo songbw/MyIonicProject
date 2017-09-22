@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {SearchService} from "./searchService";
+import {ItemDetailsPage} from "../item-details/item-details";
 
 /**
  * Generated class for the SearchPage page.
@@ -17,9 +19,11 @@ export class SearchPage {
 
   searchQuery: string='';
   items: string[];
+  standards: Array<{id:number, name: string, code: string, type: string, smallImgPath: string, namekey: string, imgPath:string,engName:string}>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.initializeItems();
+  constructor(public navCtrl: NavController, public navParams: NavParams,public searchService: SearchService) {
+    // this.initializeItems();
+
   }
 
   initializeItems() {
@@ -31,14 +35,16 @@ export class SearchPage {
     let val = ev.target.value;
 
     if (val && val.trim() != null) {
-      this.items = this.items.filter((item) => {
-        return (item.toLowerCase().indexOf(val.toLowerCase()) > -1) ;
+      this.searchService.searchStandard(val).then(res=>{
+        this.standards=res.result.list;
       });
     }
   }
 
   toggleSearch(event, item) {
-    alert(item);
+    this.navCtrl.push(ItemDetailsPage, {
+      item: item
+    });
   }
 
   ionViewDidLoad() {

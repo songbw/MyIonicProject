@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>search</ion-title>
+    <ion-title>查询</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -16,8 +16,8 @@
 <ion-content padding>
     <ion-searchbar [(ngModel)]="searchQuery" (ionInput)="getItems($event)"></ion-searchbar>
   <ion-list>
-    <ion-item *ngFor="let item of items" (click)="toggleSearch($event, item)">
-      {{item}}
+    <ion-item *ngFor="let item of standards" (click)="toggleSearch($event, item)">
+      {{item.name}}
     </ion-item>
   </ion-list>
 </ion-content>

@@ -16,6 +16,7 @@ export class ListPage {
   selectedItem:any;
   standards: Array<{id:number, name: string, code: string, type: string, smallImgPath: string, namekey: string, imgPath:string,engName:string}>;
   result:any;
+  queryText:string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public listService: ListService) {
 
@@ -24,22 +25,28 @@ export class ListPage {
     'american-football', 'boat', 'bluetooth', 'build'];
 
     this.items = [];
-    listService.standardBycode().then(res=>{
+    listService.standardBytype(this.selectedItem.name).then(res=>{
           this.standards=res.result.list;
-          console.info("standars is : ",this.standards);
-         });
-    // for(let i = 1; i < 11; i++) {
-    //   this.items.push({
-    //     title: 'Item ' + i,
-    //     note: 'This is item #' + i,
-    //     icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-    //   });
-    // }
+    });
   }
 
   itemTapped(event, item) {
     this.navCtrl.push(ItemDetailsPage, {
       item: item
     });
+  }
+
+  updateSchedule(event: any) {
+    // let val = event.target.value;
+    // if (val && val.trim() != '') {
+    //   console.info(this.queryText);
+    //   this.standards = this.standards.filter((standard) => {
+    //     if (standard.name.indexOf(val) > -1) {
+    //       console.info(standard);
+    //       return standard;
+    //     }
+    //   });
+    //   console.info(this.standards);
+    // }
   }
 }

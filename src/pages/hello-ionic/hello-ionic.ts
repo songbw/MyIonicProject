@@ -3,7 +3,7 @@ import {NavController, NavParams} from "ionic-angular";
 import {ListPage} from "../list/list";
 import {SearchPage} from "../search/search";
 
-// import {HelloService} from "./helloService";
+import {HelloService} from "./helloService";
 
 @Component({
   selector: 'page-hello-ionic',
@@ -13,34 +13,50 @@ export class HelloIonicPage {
 
   icons: string[];
   itemRows: Array<any>;
-  itemCols: Array<{title: string, note: string, icon: string}>;
-  userInfo;
+  itemCols: Array<{code: string, name: string, imgPath: string}>;
+  fenleis: Array<{id: number,code: string, name: string, imgPath: string}>;
+  colCount: number;
+  rowCount: number;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public helloService: HelloService) {
     this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
       'american-football', 'boat', 'bluetooth', 'build'];
 
-    this.itemRows = [];
-
-    for(let i = 1; i < 4; i++) {
-      this.itemCols = [];
-      for (let j = 1; j < 4; j++) {
-        this.itemCols.push({
-          title: 'Item ' + i + j,
-          note: 'This is item #' + i + j,
-          icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-        });
+    this.helloService.getFenlei().then(res => {
+      this.fenleis = res.result;
+      this.itemRows = [];
+      let count = 0;
+      this.colCount = 3;
+      if (this.fenleis.length % this.colCount == 0) {
+        this.rowCount = this.fenleis.length/this.colCount;
+      } else {
+        this.rowCount = Math.floor(this.fenleis.length/this.colCount) + 1;
       }
-      this.itemRows.push(this.itemCols);
-    }
-    console.info(this.itemRows);
+
+      console.info("fenleis count is : ", this.fenleis.length, " coloCount is : ", this.colCount," , rowCount is ; ", this.rowCount);
+      for(let i = 0; i < this.rowCount ; i++) {
+        this.itemCols = [];
+        for (let j = 0; j < this.colCount; j++) {
+          if (count < this.fenleis.length) {
+            this.itemCols.push({
+              code: this.fenleis[count].code,
+              name: this.fenleis[count].name,
+              imgPath: this.icons[Math.floor(Math.random() * this.icons.length)]
+            });
+          } else {
+            this.itemCols.push({
+              code: '',
+              name: '',
+              imgPath: this.icons[Math.floor(Math.random() * this.icons.length)]
+            });
+          }
+          count++;
+        }
+        this.itemRows.push(this.itemCols);
+      }
+    });
   }
 
-  // getUser() {
-  //   this.helloService.getUser().then(res=>{
-  //     this.userInfo=res.data;
-  //   })
-  // }
 
   listTapped(event, item) {
     this.navCtrl.push(ListPage, {
