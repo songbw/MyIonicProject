@@ -17,7 +17,7 @@
     <ion-searchbar [(ngModel)]="searchQuery" (ionInput)="getItems($event)"></ion-searchbar>
   <ion-list>
     <ion-item *ngFor="let item of standards" (click)="toggleSearch($event, item)">
-      {{item.name}}
+      {{item.nameKey}}
     </ion-item>
   </ion-list>
 </ion-content>

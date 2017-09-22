@@ -19,7 +19,7 @@ export class SearchPage {
 
   searchQuery: string='';
   items: string[];
-  standards: Array<{id:number, name: string, code: string, type: string, smallImgPath: string, namekey: string, imgPath:string,engName:string}>;
+  standards: Array<{id:number, name: string, code: string, type: string, smallImgPath: string, nameKey: string, imgPath:string,engName:string}>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public searchService: SearchService) {
     // this.initializeItems();
