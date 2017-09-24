@@ -19,19 +19,15 @@ export class SearchPage {
 
   searchQuery: string='';
   items: string[];
-  standards: Array<{id:number, name: string, code: string, type: string, smallImgPath: string, nameKey: string, imgPath:string,engName:string}>;
+  standards: Array<{id:number, nameKey: string}>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public searchService: SearchService) {
     // this.initializeItems();
 
   }
 
-  initializeItems() {
-    this.items = ['螺丝','song','bing','wei','shi']
-  }
 
   getItems(ev:any) {
-    this.initializeItems();
     let val = ev.target.value;
 
     if (val && val.trim() != null) {
@@ -42,9 +38,12 @@ export class SearchPage {
   }
 
   toggleSearch(event, item) {
-    this.navCtrl.push(ItemDetailsPage, {
-      item: item
+    this.searchService.findStandard(item.id).then(res => {
+      this.navCtrl.push(ItemDetailsPage, {
+        item:res.result
+      });
     });
+
   }
 
   ionViewDidLoad() {

@@ -11,4 +11,8 @@ export class SearchService {
   searchStandard(name:string) {
     return this.httpService.get(APP_SERVE_URL+'/api/standard/search',{"key":name});
   }
+
+  findStandard(id:number) {
+    return this.httpService.get(APP_SERVE_URL+'/api/standard/get',{"id":id});
+  }
 }

@@ -12,7 +12,11 @@ export class ListService {
     return this.httpService.get(APP_SERVE_URL+'/api/standard/search',{"key":""});
   }
 
-  standardBytype(type:string) {
-    return this.httpService.get(APP_SERVE_URL+'/api/standard',{"type":"["+type+"]"});
+  standardBytype(type:string,currentPage:number,pageSize:number) {
+    return this.httpService.get(APP_SERVE_URL+'/api/standard',{"type":"["+type+"]","currentPage":currentPage,"pageSize":pageSize});
+  }
+
+  searchStandardByType(type:string,currentPage:number,pageSize:number,key:string) {
+    return this.httpService.get(APP_SERVE_URL+'/api/standard',{"type":"["+type+"]","currentPage":currentPage,"pageSize":pageSize,"key":key});
   }
 }
