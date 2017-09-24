@@ -16,6 +16,7 @@ import {HttpModule} from "@angular/http";
 import {ComponentsModule} from "../components/components.module";
 import {SearchPage} from "../pages/search/search";
 import {SearchService} from "../pages/search/searchService";
+import {TreeListPage} from "../pages/tree-list/tree-list"
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {SearchService} from "../pages/search/searchService";
     HelloIonicPage,
     ItemDetailsPage,
     ListPage,
-    SearchPage
+    SearchPage,
+    TreeListPage
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,8 @@ import {SearchService} from "../pages/search/searchService";
     HelloIonicPage,
     ItemDetailsPage,
     ListPage,
-    SearchPage
+    SearchPage,
+    TreeListPage
   ],
   providers: [
     StatusBar,

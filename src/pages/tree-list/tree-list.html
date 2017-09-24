@@ -1,0 +1,28 @@
+<!--
+  Generated template for the TreeListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>级联查询</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item *ngFor="let stan of standards" (click)="itemTapped($event, stan)">
+      <!--<img-lazy-load [src]="stan.smallImgPath" item-left large></img-lazy-load>-->
+      <img src="{{stan.smallImgPath}}" item-start>
+      <!--<ion-img src="{{stan.smallImgPath}}" item-start></ion-img>-->
+      <p>{{stan.type}}</p>
+      <h3>{{stan.nameKey}}</h3>
+      <p>{{stan.engName}}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>
