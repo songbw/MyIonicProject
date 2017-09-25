@@ -13,10 +13,10 @@ export class ListService {
   }
 
   standardBytype(type:string,currentPage:number,pageSize:number) {
-    return this.httpService.get(APP_SERVE_URL+'/api/standard',{"type":"["+type+"]","currentPage":currentPage,"pageSize":pageSize});
+    return this.httpService.get(APP_SERVE_URL+'/api/standard',{"type":type,"currentPage":currentPage,"pageSize":pageSize});
   }
 
-  searchStandardByType(type:string,currentPage:number,pageSize:number,key:string) {
-    return this.httpService.get(APP_SERVE_URL+'/api/standard',{"type":"["+type+"]","currentPage":currentPage,"pageSize":pageSize,"key":key});
+  searchStandardByType(type:string,currentPage:number,pageSize:number,key:string,parentId:number) {
+    return this.httpService.get(APP_SERVE_URL+'/api/standard',{"type":type,"currentPage":currentPage,"pageSize":pageSize,"key":key,"parentId":parentId});
   }
 }

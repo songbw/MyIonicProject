@@ -16,7 +16,8 @@ import {HttpModule} from "@angular/http";
 import {ComponentsModule} from "../components/components.module";
 import {SearchPage} from "../pages/search/search";
 import {SearchService} from "../pages/search/searchService";
-import {TreeListPage} from "../pages/tree-list/tree-list"
+import {TreeListPage} from "../pages/tree-list/tree-list";
+import {TreeService} from "../pages/tree-list/treeService";
 
 @NgModule({
   declarations: [
@@ -45,7 +46,7 @@ import {TreeListPage} from "../pages/tree-list/tree-list"
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}, HttpService,ListService,HelloService,SearchService
+    {provide: ErrorHandler, useClass: IonicErrorHandler}, HttpService,ListService,HelloService,SearchService,TreeService
   ]
 })
 export class AppModule {}

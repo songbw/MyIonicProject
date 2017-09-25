@@ -29,8 +29,8 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
-      { title: '国际标准分类', component: HelloIonicPage },
-      { title: '级联查询', component: TreeListPage }
+      { title: '标准分类', component: HelloIonicPage },
+      { title: '产品分类', component: TreeListPage }
     ];
   }
 

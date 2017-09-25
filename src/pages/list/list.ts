@@ -21,17 +21,32 @@ export class ListPage {
   pageSize:number;
   queryText:string;
   selectVal:string;
+  treeItem:any;
+  parentId:number;
+  type:string;
+  listTitle:string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public listService: ListService) {
 
     this.selectedItem = navParams.get('item');
+    this.treeItem = navParams.get('treeItem');
+    this.parentId = 0;
+    this.type='';
+    if (this.treeItem != null) {
+      this.parentId = this.treeItem.id;
+      this.listTitle=this.treeItem.name;
+    }
+    if (this.selectedItem != null) {
+      this.type = this.selectedItem.name;
+      this.listTitle=this.selectedItem.name;
+    }
     this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
     'american-football', 'boat', 'bluetooth', 'build'];
     this.currentPage = 0;
     this.pageSize=10;
     this.items = [];
     this.standards = [];
-    listService.standardBytype(this.selectedItem.name,this.currentPage,this.pageSize).then(res=>{
+    listService.searchStandardByType(this.type,this.currentPage,this.pageSize,this.selectVal,this.parentId).then(res=>{
           this.standardAll=res.result.list;
           for (let i = 0; i < this.standardAll.length; i++) {
             this.standards.push({
@@ -60,7 +75,7 @@ export class ListPage {
 
     setTimeout(() => {
 
-      this.listService.searchStandardByType(this.selectedItem.name,this.currentPage,this.pageSize,this.selectVal).then(res=>{
+      this.listService.searchStandardByType(this.type,this.currentPage,this.pageSize,this.selectVal,this.parentId).then(res=>{
         this.standardAll=res.result.list;
         for (let i = 0; i < this.standardAll.length; i++) {
           this.standards.push({
@@ -88,7 +103,7 @@ export class ListPage {
     this.selectVal = event.target.value;
 
     if (this.selectVal && this.selectVal.trim() != null) {
-      this.listService.searchStandardByType(this.selectedItem.name,0,100,this.selectVal).then(res=>{
+      this.listService.searchStandardByType(this.type,0,100,this.selectVal,this.parentId).then(res=>{
         this.standards=res.result.list;
       });
     }
